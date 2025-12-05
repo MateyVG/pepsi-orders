@@ -18,21 +18,25 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   useEffect(() => {
     const init = async () => {
-      const { data: { session } } = await supabase.auth.getSession()
-      
-      if (session?.user) {
-        const { data: userData } = await supabase
-          .from('users')
-          .select('*, restaurants(id, name)')
-          .eq('auth_id', session.user.id)
-          .single()
+      try {
+        const { data: { session } } = await supabase.auth.getSession()
+        
+        if (session?.user) {
+          const { data: userData } = await supabase
+            .from('users')
+            .select('*, restaurants(id, name)')
+            .eq('auth_id', session.user.id)
+            .single()
 
-        if (userData) {
-          setUser({ ...userData, restaurant_name: userData.restaurants?.name })
+          if (userData) {
+            setUser({ ...userData, restaurant_name: userData.restaurants?.name })
+          }
         }
+      } catch (error) {
+        console.error('Auth init error:', error)
+      } finally {
+        setInitialized(true)
       }
-      
-      setInitialized(true)
     }
 
     init()
