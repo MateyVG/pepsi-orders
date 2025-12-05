@@ -1,0 +1,21 @@
+{
+  "name": "Pepsi Order System - Aladin Foods",
+  "short_name": "Pepsi Orders",
+  "description": "Система за заявки на напитки",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#195E33",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
