@@ -139,7 +139,7 @@ const HistoryPage: React.FC = () => {
       'ID': o.id.slice(0, 8),
       'Ресторант': o.restaurant_name,
       'Дата на доставка': format(new Date(o.delivery_date), 'dd.MM.yyyy'),
-      'Сума': o.total_amount?.toFixed(2) + ' лв.',
+      'Сума': o.total_amount?.toFixed(2) + ' € ',
       'Статус': o.status,
       'Създадена': format(new Date(o.created_at), 'dd.MM.yyyy HH:mm')
     }))
@@ -162,8 +162,8 @@ const HistoryPage: React.FC = () => {
       'Код': item.product_code,
       'Артикул': item.product_name,
       'Количество': item.quantity,
-      'Цена/стек': item.price_per_stack.toFixed(2) + ' лв.',
-      'Общо': item.total_price.toFixed(2) + ' лв.'
+      'Цена/стек': item.price_per_stack.toFixed(2) + ' € ',
+      'Общо': item.total_price.toFixed(2) + ' € '
     }))
 
     const ws = XLSX.utils.json_to_sheet(exportData)
@@ -306,7 +306,7 @@ const HistoryPage: React.FC = () => {
                       {format(new Date(order.delivery_date), 'd MMM yyyy', { locale: bg })}
                     </td>
                     <td className="font-semibold">
-                      {order.total_amount?.toFixed(2)} лв.
+                      {order.total_amount?.toFixed(2)} € 
                     </td>
                     <td>{getStatusBadge(order.status)}</td>
                     <td className="text-gray-500 text-sm">
@@ -414,8 +414,8 @@ const HistoryPage: React.FC = () => {
                         <td className="font-mono text-sm">{item.product_code}</td>
                         <td>{item.product_name}</td>
                         <td className="text-center">{item.quantity}</td>
-                        <td className="text-right">{item.price_per_stack.toFixed(2)} лв.</td>
-                        <td className="text-right font-semibold">{item.total_price.toFixed(2)} лв.</td>
+                        <td className="text-right">{item.price_per_stack.toFixed(2)} € </td>
+                        <td className="text-right font-semibold">{item.total_price.toFixed(2)} € </td>
                       </tr>
                     ))}
                   </tbody>
@@ -423,7 +423,7 @@ const HistoryPage: React.FC = () => {
                     <tr className="bg-gray-50">
                       <td colSpan={4} className="text-right font-semibold">ОБЩО С ДДС:</td>
                       <td className="text-right font-bold text-lg text-aladin-green">
-                        {selectedOrder.total_amount?.toFixed(2)} лв.
+                        {selectedOrder.total_amount?.toFixed(2)} € 
                       </td>
                     </tr>
                   </tfoot>

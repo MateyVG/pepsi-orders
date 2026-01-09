@@ -157,7 +157,7 @@ const ReportsPage: React.FC = () => {
       'Код': p.code,
       'Артикул': p.name,
       'Общо количество': p.totalQuantity,
-      'Обща сума': p.totalAmount.toFixed(2) + ' лв.'
+      'Обща сума': p.totalAmount.toFixed(2) + ' € '
     }))
 
     const ws = XLSX.utils.json_to_sheet(exportData)
@@ -176,7 +176,7 @@ const ReportsPage: React.FC = () => {
     const exportData = restaurantStats.map(r => ({
       'Ресторант': r.name,
       'Брой поръчки': r.orderCount,
-      'Обща сума': r.totalAmount.toFixed(2) + ' лв.'
+      'Обща сума': r.totalAmount.toFixed(2) + ' € '
     }))
 
     const ws = XLSX.utils.json_to_sheet(exportData)
@@ -272,7 +272,7 @@ const ReportsPage: React.FC = () => {
           <p className="text-sm text-gray-500 mt-1">Поръчки</p>
         </div>
         <div className="pb-3 border-b-2 border-green-500">
-          <p className="text-3xl font-bold text-green-600">{stats.totalAmount.toFixed(2)} лв.</p>
+          <p className="text-3xl font-bold text-green-600">{stats.totalAmount.toFixed(2)} € </p>
           <p className="text-sm text-gray-500 mt-1">Общо</p>
         </div>
         <div className="pb-3 border-b-2 border-aladin-green">
@@ -316,7 +316,7 @@ const ReportsPage: React.FC = () => {
                       <p className="text-xs text-gray-500">{product.totalQuantity} стека</p>
                     </div>
                     <p className="font-semibold text-aladin-green">
-                      {product.totalAmount.toFixed(2)} лв.
+                      {product.totalAmount.toFixed(2)} € 
                     </p>
                   </div>
                 ))}
@@ -359,7 +359,7 @@ const ReportsPage: React.FC = () => {
                       <p className="text-xs text-gray-500">{restaurant.orderCount} поръчки</p>
                     </div>
                     <p className="font-semibold text-pepsi-blue">
-                      {restaurant.totalAmount.toFixed(2)} лв.
+                      {restaurant.totalAmount.toFixed(2)} € 
                     </p>
                   </div>
                 ))}

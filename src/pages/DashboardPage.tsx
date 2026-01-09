@@ -160,7 +160,7 @@ const DashboardPage: React.FC = () => {
           <p className="text-sm text-gray-500 mt-1">Днес</p>
         </div>
         <div className="pb-3 border-b-2 border-aladin-green">
-          <p className="text-4xl font-bold text-gray-800">{stats.totalAmount.toFixed(2)} лв.</p>
+          <p className="text-4xl font-bold text-gray-800">{stats.totalAmount.toFixed(2)} € </p>
           <p className="text-sm text-gray-500 mt-1">Оборот</p>
         </div>
       </div>
@@ -212,7 +212,7 @@ const DashboardPage: React.FC = () => {
                       {format(new Date(order.delivery_date), 'd MMM yyyy', { locale: bg })}
                     </td>
                     <td className="font-semibold">
-                      {order.total_amount?.toFixed(2)} лв.
+                      {order.total_amount?.toFixed(2)} € 
                     </td>
                     <td>{getStatusBadge(order.status)}</td>
                     <td className="text-gray-500 text-sm">

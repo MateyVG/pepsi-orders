@@ -183,7 +183,7 @@ const OrdersPage: React.FC = () => {
           'Код': p.code,
           'Артикул': p.name,
           'Общо количество': p.quantity,
-          'Обща сума': p.total.toFixed(2) + ' лв.'
+          'Обща сума': p.total.toFixed(2) + ' € '
         }))
 
         const ws = XLSX.utils.json_to_sheet(exportData)
@@ -195,7 +195,7 @@ const OrdersPage: React.FC = () => {
         const restaurantData = orders.map(o => ({
           'Ресторант': o.restaurant_name,
           'Дата доставка': format(new Date(o.delivery_date), 'dd.MM.yyyy'),
-          'Сума': o.total_amount?.toFixed(2) + ' лв.',
+          'Сума': o.total_amount?.toFixed(2) + ' € ',
           'Статус': o.status
         }))
 
@@ -508,7 +508,7 @@ const OrdersPage: React.FC = () => {
           <p className="text-sm text-gray-500 mt-1">Доставени</p>
         </div>
         <div className="pb-3 border-b-2 border-aladin-green">
-          <p className="text-3xl font-bold text-gray-800">{orders.reduce((s, o) => s + (o.total_amount || 0), 0).toFixed(2)} лв.</p>
+          <p className="text-3xl font-bold text-gray-800">{orders.reduce((s, o) => s + (o.total_amount || 0), 0).toFixed(2)} € </p>
           <p className="text-sm text-gray-500 mt-1">Обща сума</p>
         </div>
       </div>
@@ -547,7 +547,7 @@ const OrdersPage: React.FC = () => {
                     <td className="font-mono text-sm">#{order.id.slice(0, 8)}</td>
                     <td className="font-medium">{order.restaurant_name}</td>
                     <td>{format(new Date(order.delivery_date), 'd MMM yyyy', { locale: bg })}</td>
-                    <td className="font-semibold">{order.total_amount?.toFixed(2)} лв.</td>
+                    <td className="font-semibold">{order.total_amount?.toFixed(2)} € </td>
                     <td>{getStatusBadge(order.status)}</td>
                     <td className="text-gray-500 text-sm">
                       {format(new Date(order.created_at), 'd MMM, HH:mm', { locale: bg })}
@@ -680,8 +680,8 @@ const OrdersPage: React.FC = () => {
                         <td className="font-mono text-sm">{item.product_code}</td>
                         <td>{item.product_name}</td>
                         <td className="text-center">{item.quantity}</td>
-                        <td className="text-right">{item.price_per_stack.toFixed(2)} лв.</td>
-                        <td className="text-right font-semibold">{item.total_price.toFixed(2)} лв.</td>
+                        <td className="text-right">{item.price_per_stack.toFixed(2)} € </td>
+                        <td className="text-right font-semibold">{item.total_price.toFixed(2)} € </td>
                       </tr>
                     ))}
                   </tbody>
@@ -689,7 +689,7 @@ const OrdersPage: React.FC = () => {
                     <tr className="bg-gray-50">
                       <td colSpan={4} className="text-right font-semibold">ОБЩО С ДДС:</td>
                       <td className="text-right font-bold text-lg text-aladin-green">
-                        {selectedOrder.total_amount?.toFixed(2)} лв.
+                        {selectedOrder.total_amount?.toFixed(2)} € 
                       </td>
                     </tr>
                   </tfoot>

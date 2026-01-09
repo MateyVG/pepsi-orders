@@ -362,7 +362,7 @@ const OrderPage: React.FC = () => {
                     </div>
                     <div className="text-right">
                       <p className="font-bold text-aladin-green">
-                        {product.price_per_stack.toFixed(2)} лв.
+                        {product.price_per_stack.toFixed(2)} € 
                       </p>
                       <p className="text-xs text-gray-500">
                         / {product.unit} ({product.items_per_stack} бр.)
@@ -404,7 +404,7 @@ const OrderPage: React.FC = () => {
                   {quantity > 0 && (
                     <div className="mt-2 text-right">
                       <span className="text-sm font-semibold text-aladin-green">
-                        = {(quantity * product.price_per_stack).toFixed(2)} лв.
+                        = {(quantity * product.price_per_stack).toFixed(2)} € 
                       </span>
                     </div>
                   )}
@@ -440,11 +440,11 @@ const OrderPage: React.FC = () => {
                         {item.product_name}
                       </p>
                       <p className="text-xs text-gray-500">
-                        {item.quantity} × {item.price_per_stack.toFixed(2)} лв.
+                        {item.quantity} × {item.price_per_stack.toFixed(2)} € 
                       </p>
                     </div>
                     <p className="font-semibold text-aladin-green whitespace-nowrap">
-                      {item.total_price.toFixed(2)} лв.
+                      {item.total_price.toFixed(2)} € 
                     </p>
                     <button
                       onClick={() => removeItem(item.product_id)}
@@ -475,7 +475,7 @@ const OrderPage: React.FC = () => {
               <div className="flex justify-between items-center mb-4">
                 <span className="text-gray-600">Общо с ДДС:</span>
                 <span className="text-2xl font-bold text-aladin-green">
-                  {getTotalAmount().toFixed(2)} лв.
+                  {getTotalAmount().toFixed(2)} € 
                 </span>
               </div>
 

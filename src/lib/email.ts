@@ -89,8 +89,8 @@ export const generateOrderEmailHtml = (order: {
         <td style="padding: 12px; border-bottom: 1px solid #e5e7eb; font-family: monospace;">${item.product_code}</td>
         <td style="padding: 12px; border-bottom: 1px solid #e5e7eb;">${item.product_name}</td>
         <td style="padding: 12px; border-bottom: 1px solid #e5e7eb; text-align: center; font-weight: 600;">${item.quantity}</td>
-        <td style="padding: 12px; border-bottom: 1px solid #e5e7eb; text-align: right;">${item.price_per_stack.toFixed(2)} лв.</td>
-        <td style="padding: 12px; border-bottom: 1px solid #e5e7eb; text-align: right; font-weight: 600; color: #195E33;">${item.total_price.toFixed(2)} лв.</td>
+        <td style="padding: 12px; border-bottom: 1px solid #e5e7eb; text-align: right;">${item.price_per_stack.toFixed(2)} € </td>
+        <td style="padding: 12px; border-bottom: 1px solid #e5e7eb; text-align: right; font-weight: 600; color: #195E33;">${item.total_price.toFixed(2)} € </td>
       </tr>
     `)
     .join('')
@@ -128,7 +128,7 @@ export const generateOrderEmailHtml = (order: {
         
         <div style="margin-top: 20px; padding: 20px; background: #195E33; border-radius: 8px; text-align: right;">
           <span style="color: white;">ОБЩО С ДДС: </span>
-          <span style="color: white; font-size: 24px; font-weight: bold;">${order.totalAmount.toFixed(2)} лв.</span>
+          <span style="color: white; font-size: 24px; font-weight: bold;">${order.totalAmount.toFixed(2)} € </span>
         </div>
       </div>
       

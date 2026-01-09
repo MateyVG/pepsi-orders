@@ -242,7 +242,7 @@ const ProductsPage: React.FC = () => {
                     <td>
                       <span className="badge badge-info">{product.category}</span>
                     </td>
-                    <td className="font-semibold">{product.price_per_stack.toFixed(2)} лв.</td>
+                    <td className="font-semibold">{product.price_per_stack.toFixed(2)} € </td>
                     <td>{product.items_per_stack} бр.</td>
                     <td>
                       <button
